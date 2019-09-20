@@ -236,6 +236,7 @@ After 100000 epochs:
 '''keep training'''
 
 gan.train(epochs=100001, batch_size=32, sample_interval=100)
+<<<<<<< HEAD
 
 
 '''
@@ -267,3 +268,5 @@ gan.train(epochs=100001, batch_size=32, sample_interval=100)
 
 
 
+=======
+>>>>>>> 048976c8441e98855e3664c047cb54976696219c
