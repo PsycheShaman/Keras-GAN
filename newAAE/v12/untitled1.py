@@ -219,21 +219,12 @@ class AdversarialAutoencoder():
                 self.save_model(self.adversarial_autoencoder,"adversarial_autoencoder")
 
     def sample_images(self, epoch):
-    #        r, c = 5, 5
             noise = np.random.normal(0, 1, (2, self.latent_dim))
             gen_imgs = self.decoder.predict(noise)
     
             # Rescale images 0 - 1
             gen_imgs = 0.5 * gen_imgs + 0.5
             plt.imshow(gen_imgs[1,:,:,0],cmap='gray')
-    #        plt.axis('off')
-    #        fig, axs = plt.subplots(r, c)
-    #        cnt = 0
-    #        for i in range(r):
-    #            for j in range(c):
-    #                axs[i,j].imshow(gen_imgs[cnt, :,:,0], cmap='gray')
-    #                axs[i,j].axis('off')
-    #                cnt += 1
             plt.savefig("images/%d.png" % epoch)
             plt.close()
         
@@ -244,7 +235,6 @@ class AdversarialAutoencoder():
 
         # Rescale images 0 - 1
         gen_imgs = 0.5 * gen_imgs + 0.5
-#        gen_imgs = gen_imgs[:,5:22,2:26,:]
         np.save("simulated_data/"+str(epoch)+".npy",arr=gen_imgs)
 
     def save_model(self):
